@@ -13,7 +13,7 @@ app.listen(PORT, async () => {
 
     let tweetSer = new Service();
     await tweetSer.createTweet({
-        content : '#refactoring completed!!'
+        content : '#Removed the hashtags from #TweetSchema'
     }) 
 });
 
