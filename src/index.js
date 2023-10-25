@@ -1,20 +1,21 @@
 import express from 'express';
 import { connect } from './config/database.js';
+import bodyParser from 'body-parser';
 const app = express();
-import Service from './services/tweet-service.js';
 
+import apiRoutes from './routes/index.js';
 const PORT = 3000;
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
+
+app.use('/api', apiRoutes);
 
 app.listen(PORT, async () => {
     console.log(`server started on port ${PORT}`);
     await connect();
     console.log('mongodb connected'); 
 
-    let tweetSer = new Service();
-    await tweetSer.createTweet({
-        content : '#Removed the hashtags from #TweetSchema'
-    }) 
 });
 
 
