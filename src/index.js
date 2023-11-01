@@ -21,6 +21,11 @@ app.listen(PORT, async () => {
     console.log('mongodb connected'); 
 
     // const userRepo = new UserRepository();
+    // const users = await userRepo.create({
+    //     email : 'vinit@admin.com',
+    //     password : '123456',
+    //     name : 'vinit'
+    // })
     // const tweetRepo = new TweetRepository();
     // const tweets = await tweetRepo.getAll(0, 10)
     // const users = await userRepo.getAll()

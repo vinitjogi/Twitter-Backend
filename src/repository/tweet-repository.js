@@ -25,6 +25,21 @@ class TweetRepository extends CrudRepository{
         }
     }
 
+    async getWithComments(tweetId){
+        try {
+            const tweet = await Tweet.findById(tweetId).populate({
+                path: 'comments',
+                populate: {
+                    path: 'comments'
+                }
+            }).lean();
+            // console.log("in repo", tweet);
+            return tweet;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     // async update(tweetId, data){
     //     try {
     //         const tweet = await Tweet.findByIdAndUpdate(tweetId, data, {new : true});
