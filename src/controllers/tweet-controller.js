@@ -5,6 +5,7 @@ const tweetService = new TweetService();
 export const createTweet = async (req, res)=> {
 
     try {
+        // console.log('In tweet controller', req.body);
         const response = await tweetService.createTweet(req.body);
         return res.status(201).json({
             success : true,

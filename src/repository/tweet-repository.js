@@ -9,7 +9,9 @@ class TweetRepository extends CrudRepository{
 
     async create(data){
         try {
+            console.log('tweet repo: ' ,data);
             const tweet = await Tweet.create(data);
+            console.log(tweet);
             return tweet;
         } catch (error) {
             console.log(error);
