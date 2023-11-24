@@ -2,12 +2,11 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import passport from 'passport';
 import { connect } from './config/database.js';
-import { passportAuth } from './config/jwt-middleware.js'
-const app = express();
-
+import { passportAuth } from './config/jwt-middleware.js';
+import { PORT } from './config/serverConfig.js';
 import apiRoutes from './routes/index.js';
 
-const PORT = 3000;
+const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
