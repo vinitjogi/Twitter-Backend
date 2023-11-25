@@ -21,13 +21,17 @@ const tweetSchema = new mongoose.Schema({
             type : mongoose.Schema.Types.ObjectId,
             ref : 'Comment'
         }
-    ]
+    ],
     // hashtags : [
     //     {
     //         type : mongoose.Schema.Types.ObjectId,
     //         ref : 'Hashtag'
     //     }
     // ]
+    image : {
+        type : String,
+        required : false,
+    }
 },{timestamps : true});
 
 

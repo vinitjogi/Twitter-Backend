@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import { SALT } from "../config/serverConfig.js";
 const userSchema = new mongoose.Schema({
     email : {
         type : String, 
@@ -22,7 +23,6 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre('save', function(next){
     const user = this;
-    const SALT = bcrypt.genSaltSync(9);
     const encryptedPassword = bcrypt.hashSync(user.password, SALT);
     user.password = encryptedPassword;
     next();
